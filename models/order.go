@@ -37,13 +37,13 @@ type Order struct {
 	OrderState          string  `json:"order_state"`
 	OrderID             string  `json:"order_id"`
 	MaxShow             float64 `json:"max_show"`
-	LastUpdateTimestamp int64   `json:"last_update_timestamp"`
+	LastUpdateTimestamp uint64  `json:"last_update_timestamp"`
 	Label               string  `json:"label"`
 	IsLiquidation       bool    `json:"is_liquidation"`
 	InstrumentName      string  `json:"instrument_name"`
 	FilledAmount        float64 `json:"filled_amount"`
 	Direction           string  `json:"direction"`
-	CreationTimestamp   int64   `json:"creation_timestamp"`
+	CreationTimestamp   uint64  `json:"creation_timestamp"`
 	Commission          float64 `json:"commission"`
 	AveragePrice        float64 `json:"average_price"`
 	Implv               float64 `json:"implv,omitempty"`

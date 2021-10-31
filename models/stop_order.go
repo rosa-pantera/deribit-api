@@ -2,7 +2,7 @@ package models
 
 type StopOrder struct {
 	Trigger        string  `json:"trigger"`
-	Timestamp      int64   `json:"timestamp"`
+	Timestamp      uint64  `json:"timestamp"`
 	StopPrice      float64 `json:"stop_price"`
 	StopID         string  `json:"stop_id"`
 	OrderState     string  `json:"order_state"`

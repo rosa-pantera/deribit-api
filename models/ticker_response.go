@@ -23,5 +23,5 @@ type TickerResponse struct {
 	SettlementPrice float64     `json:"settlement_price"`
 	State           string      `json:"state"`
 	Stats           TickerStats `json:"stats"`
-	Timestamp       int64       `json:"timestamp"`
+	Timestamp       uint64      `json:"timestamp"`
 }

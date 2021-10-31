@@ -2,7 +2,7 @@ package models
 
 type Settlement struct {
 	Type              string  `json:"type"`
-	Timestamp         int64   `json:"timestamp"`
+	Timestamp         uint64  `json:"timestamp"`
 	SessionProfitLoss float64 `json:"session_profit_loss"`
 	ProfitLoss        float64 `json:"profit_loss"`
 	Position          float64 `json:"position"`

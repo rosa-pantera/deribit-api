@@ -1,7 +1,7 @@
 package models
 
 type GetOrderBookResponse struct {
-	Timestamp int64 `json:"timestamp"`
+	Timestamp uint64 `json:"timestamp"`
 	Stats     struct {
 		Volume float64 `json:"volume"`
 		Low    float64 `json:"low"`

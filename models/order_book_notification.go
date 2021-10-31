@@ -7,7 +7,7 @@ import (
 )
 
 type OrderBookGroupNotification struct {
-	Timestamp      int64       `json:"timestamp"`
+	Timestamp      uint64      `json:"timestamp"`
 	InstrumentName string      `json:"instrument_name"`
 	ChangeID       int64       `json:"change_id"`
 	Bids           [][]float64 `json:"bids"` // [price, amount]
@@ -44,7 +44,7 @@ func (item *OrderBookNotificationItem) UnmarshalJSON(b []byte) error {
 
 type OrderBookNotification struct {
 	Type           string                      `json:"type"`
-	Timestamp      int64                       `json:"timestamp"`
+	Timestamp      uint64                      `json:"timestamp"`
 	InstrumentName string                      `json:"instrument_name"`
 	PrevChangeID   int64                       `json:"prev_change_id"`
 	ChangeID       int64                       `json:"change_id"`
@@ -53,7 +53,7 @@ type OrderBookNotification struct {
 }
 
 type OrderBookRawNotification struct {
-	Timestamp      int64                       `json:"timestamp"`
+	Timestamp      uint64                      `json:"timestamp"`
 	InstrumentName string                      `json:"instrument_name"`
 	PrevChangeID   int64                       `json:"prev_change_id"`
 	ChangeID       int64                       `json:"change_id"`

@@ -13,7 +13,7 @@ type BookSummary struct {
 	InterestRate      float64 `json:"interest_rate"`
 	InstrumentName    string  `json:"instrument_name"`
 	High              float64 `json:"high"`
-	CreationTimestamp int64   `json:"creation_timestamp"`
+	CreationTimestamp uint64  `json:"creation_timestamp"`
 	BidPrice          float64 `json:"bid_price"`
 	BaseCurrency      string  `json:"base_currency"`
 	AskPrice          float64 `json:"ask_price"`
