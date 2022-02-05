@@ -1,10 +1,11 @@
 package deribit
 
 import (
-	"github.com/json-iterator/go"
-	"github.com/rosa-pantera/deribit-api/models"
 	"log"
 	"strings"
+
+	jsoniter "github.com/json-iterator/go"
+	"github.com/rosa-pantera/deribit-api/models"
 )
 
 func (c *Client) subscriptionsProcess(event *Event) {
@@ -101,6 +102,14 @@ func (c *Client) subscriptionsProcess(event *Event) {
 		c.Emit(event.Channel, &notification)
 	} else if strings.HasPrefix(event.Channel, "ticker") {
 		var notification models.TickerNotification
+		err := jsoniter.Unmarshal(event.Data, &notification)
+		if err != nil {
+			log.Printf("%v", err)
+			return
+		}
+		c.Emit(event.Channel, &notification)
+	} else if strings.HasPrefix(event.Channel, "instrument") {
+		var notification models.InstrumentNotification
 		err := jsoniter.Unmarshal(event.Data, &notification)
 		if err != nil {
 			log.Printf("%v", err)
