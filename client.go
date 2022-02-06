@@ -220,13 +220,11 @@ func (c *Client) Call(method string, params interface{}, result interface{}) (er
 
 // Handle implements jsonrpc2.Handler
 func (c *Client) Handle(ctx context.Context, conn *jsonrpc2.Conn, req *jsonrpc2.Request) {
-	//log.Printf("Handle %v", req.Method)
 	if req.Method == "subscription" {
 		// update events
 		if req.Params != nil && len(*req.Params) > 0 {
 			var event Event
 			if err := json.Unmarshal(*req.Params, &event); err != nil {
-				//c.setError(err)
 				return
 			}
 			c.subscriptionsProcess(&event)
@@ -262,7 +260,6 @@ func (c *Client) reconnect() {
 
 func (c *Client) connect() (*websocket.Conn, *http.Response, error) {
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	//defer cancel()
 	conn, resp, err := websocket.Dial(ctx, c.addr, &websocket.DialOptions{})
 	if err == nil {
 		conn.SetReadLimit(32768 * 64)
